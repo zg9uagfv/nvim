@@ -90,7 +90,7 @@ local plugins = {
   -- snippet
   {
     "L3MON4D3/LuaSnip",
-    version = "<CurrentMajor>.*",
+    version = "V2.*",
     build = "make install_jsregexp",
   },
   { "saadparwaiz1/cmp_luasnip" },
