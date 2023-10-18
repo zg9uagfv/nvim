@@ -333,4 +333,3 @@ git clone https://github.com/GIN-18/nvim.git ~/.config/nvim
   <summary><strong>Demo (click to expand)</strong></summary>
   <img src="https://github.com/GIN-18/pictures/blob/master/readme-images/nvim/md-img-paste.gif?raw=true" alt="md-img-paste" />
 </details>
-
