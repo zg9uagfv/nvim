@@ -28,6 +28,10 @@ local plugins = {
     lazy = true,
   },
   {
+    "tanvirtin/monokai.nvim",
+    lazy = true,
+  },
+  {
     "catppuccin/nvim",
     name = "catppuccin",
     lazy = true,

@@ -19,6 +19,7 @@
   "mason-lspconfig.nvim": { "branch": "main", "commit": "e7b64c11035aa924f87385b72145e0ccf68a7e0a" },
   "mason.nvim": { "branch": "main", "commit": "cd7835b15f5a4204fc37e0aa739347472121a54c" },
   "md-img-paste.vim": { "branch": "master", "commit": "787be15ff52ea2db5ae7b813ab8808c8d4cf749e" },
+  "monokai.nvim": { "branch": "master", "commit": "b8bd44d5796503173627d7a1fc51f77ec3a08a63" },
   "nordic.nvim": { "branch": "main", "commit": "cd552784eeeae61644fec60f6cc52c267dbddc73" },
   "null-ls.nvim": { "branch": "main", "commit": "0010ea927ab7c09ef0ce9bf28c2b573fc302f5a7" },
   "nvim-autopairs": { "branch": "master", "commit": "f6c71641f6f183427a651c0ce4ba3fb89404fa9e" },
