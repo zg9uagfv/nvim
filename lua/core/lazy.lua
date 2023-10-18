@@ -132,8 +132,8 @@ local plugins = {
 
   -- utils
   {
-    "Exafunction/codeium.vim",
-    event = "BufEnter"
+    "codota/tabnine-nvim", 
+    build = "./dl_binaries.sh"
   },
   {
     "windwp/nvim-autopairs",
