@@ -31,6 +31,13 @@ for type, icon in pairs(signs) do
   vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
 end
 
+-- Global mappings.
+-- See `:help vim.diagnostic.*` for documentation on any of the below functions
+vim.keymap.set('n', '<space>e', vim.diagnostic.open_float)
+vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
+vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
+vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist)
+
 -- autocompletion and keymap
 local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
 local on_attach = function(client, bufnr)
@@ -38,6 +45,8 @@ local on_attach = function(client, bufnr)
   vim.keymap.set("n", "<SPACE>gd", vim.lsp.buf.definition, bufopts)
   vim.keymap.set("n", "<SPACE>gr", vim.lsp.buf.references, bufopts)
   vim.keymap.set("n", "<SPACE>rn", vim.lsp.buf.rename, bufopts)
+  vim.keymap.set("n", "<SPACE>td", vim.lsp.buf.type_definition, bufopts)
+  vim.keymap.set("n", "<C-k>",     vim.lsp.buf.signature_help, bufopts)
   vim.keymap.set("n", "<SPACE>ca", vim.lsp.buf.code_action, bufopts)
   vim.keymap.set("n", "<SPACE>cf", function() vim.lsp.buf.format { async = true } end, bufopts)
   vim.keymap.set("v", "<SPACE>cf", function() vim.lsp.buf.format { async = true } end, bufopts)
