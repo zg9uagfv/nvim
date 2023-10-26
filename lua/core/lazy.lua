@@ -53,13 +53,22 @@ local plugins = {
     event = "VimEnter",
   },
   {
-    "lukas-reineke/indent-blankline.nvim",
+    -- Add indentation guides even on blank lines
+    'lukas-reineke/indent-blankline.nvim',
+    -- Enable `lukas-reineke/indent-blankline.nvim`
+    -- See `:help indent_blankline.txt`
+    version = "2.20.8",
+    --main = "ibl",
+    opts = {
+      indent = {
+        char = {"┊"},
+      },
+    },
     event = {
       "BufReadPost",
       "BufNewFile",
     },
   },
-
   -- lsp
   {
     "neovim/nvim-lspconfig",
