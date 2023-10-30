@@ -3,7 +3,7 @@ local opts = { noremap = true, silent = true }
 local keymap = vim.keymap.set
 
 -- remap space as leader key
--- vim.g.mapleader = '<SPACE>'
+vim.g.mapleader = ','
 
 -- remap
 keymap('n', 's', '<Cmd>w<CR>', opts)
