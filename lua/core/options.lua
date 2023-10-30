@@ -29,6 +29,18 @@ vim.scriptencoding = 'utf-8'
 vim.opt.encoding = 'utf-8'
 vim.opt.fileencoding = 'utf-8'
 
+-- 显示左侧图标指示列   nv的gutter 有三种 number 显示数字 fold 显示折叠标志 sign 显示icon
+-- icon 占用的列数可以设置 auto 或者 yes:1 yes:2 yes:3 （固定列数） 或者 number 和行号共占一列
+vim.wo.signcolumn = "yes"
+-- vim.wo.signcolumn = "auto"
+-- vim.wo.signcolumn = "number"
+-- vim.wo.signcolumn = "yes:1"
+-- vim.wo.signcolumn = "auto:1"
+
+-- 右侧参考线，超过表示代码太长了，考虑换行
+-- vim.wo.colorcolumn = "80"
+opt.colorcolumn = "80"
+
 -- 仅在当前窗口显示行号
 vim.wo.number = true
 vim.opt.title = true
@@ -37,6 +49,8 @@ vim.opt.title = true
 opt.autoindent = true
 -- 高亮所有匹配的搜索模式
 opt.hlsearch = true
+-- 边输入边搜索
+opt.incsearch = true
 
 -- 禁止Neovim自动生成备份文件
 opt.backup = false
@@ -96,24 +110,36 @@ opt.wildignore:append { '*/node_modules/*' }
 -- 在注释行回车时自动插入注释符号
 opt.formatoptions:append { 'r' }
 
--- 启用 'splitright' 选项，以便在右侧分割窗口
-opt.splitright = true
-
-
 opt.smartindent = true
+-- 使用相对行号
 opt.number = true
-opt.relativenumber = true
+opt.relativenumber = false
+
+-- split window 从下边和右边出现
+vim.o.splitbelow = true
+vim.o.splitright = true
+
+-- 自动补全不自动选中
+vim.g.completeopt = "menu,menuone,noselect,noinsert"
+-- 不可见字符的显示，这里只把空格显示为一个点
+-- vim.opt.listchars = {eol = '↲', tab = '▸ ', trail = '·'}
+-- vim.opt.list = require("commConf").listchar
+-- vim.o.listchars = "tab:··,trail:▫"
+-- vim.opt.listchars:append("space:⋅")
+vim.opt.listchars:append("eol:↴")
+vim.opt.listchars:append("trail:▫")
+-- vim.o.list = false
+-- vim.o.listchars = "space:·,tab:··"
+-- vim.o.listchars = "tab:··,trail:▫"
+
 opt.wildmenu = true
-opt.incsearch = true
 opt.smartcase = true
 opt.autochdir = true
-opt.splitbelow = true
 opt.visualbell = true
 opt.autoread = true
 opt.swapfile = false
 
 opt.mouse = ""
-opt.signcolumn = "yes"
 opt.shortmess = "atI"
 opt.updatetime = 300
 opt.redrawtime = 1500
@@ -128,11 +154,11 @@ opt.foldlevel = 99
 -- list char
 opt.list = true
 opt.listchars = {
-  -- tab = "",
-  trail = "",
-  extends = "»",
-  precedes = "«",
-  nbsp = "×",
+  tab = "   ",
+  --trail = "",
+  --extends = "»",
+  --precedes = "«",
+  --nbsp = "×",
 }
 
 -- backup

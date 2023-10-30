@@ -72,6 +72,7 @@ func! s:FileTypeOpen()
   endif
 endfunc
 
+
 " -----------------------------------------------------------------
 "                                                                 -
 " load plugin config in lua/plugins                               -
@@ -85,6 +86,9 @@ require('core.lazy')
 
 -- ui
 require('core.colorscheme')
+require('plugins.keybindings')
+require('plugins.keybindingAlias')
+require('plugins.commConf')
 require('plugins.alpha-nvim')
 require('plugins.lualine')
 require('plugins.nvim-treesitter')
@@ -95,6 +99,8 @@ require('plugins.nvim-lspconfig')
 require('plugins.mason')
 require('plugins.mason-lspconfig')
 require('plugins.null-ls')
+require('plugins.lspsaga')
+
 
 -- complement
 require('plugins.nvim-cmp')
@@ -105,6 +111,7 @@ require('plugins.telescope')
 
 -- explorer
 require('plugins.nvim-tree')
+require('plugins.toggleterm')
 
 -- git
 require('plugins.lazygit')

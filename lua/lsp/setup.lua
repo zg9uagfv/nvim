@@ -1,23 +1,50 @@
-local status_ok, mason_lspconfig = pcall(require, "mason-lspconfig")
-if not status_ok then
-  vim.notify("mason-lspconfig not found!")
-  return
+local status, mason = pcall(require, "mason")
+if not status then
+	vim.notify("没有找到 mason.nvim")
+	return
+end
+mason.setup({
+	ui = {
+		border = "rounded",
+	},
+	install_root_dir = require("commConf").sharePath .. "/abc/mason",
+})
+
+local mason_lspconfig
+status, mason_lspconfig = pcall(require, "mason-lspconfig")
+if not status then
+	vim.notify("没有找到 mason-lspconfig")
+	return
 end
 
+-- see https://github.com/folke/neodev.nvim
+-- settings for neovim dev environment
+local neodev
+status, neodev = pcall(require, "neodev")
+if not status then
+	---@diagnostic disable-next-line: param-type-mismatch
+	vim.notify("没有找到 neodev", "error")
+	return
+end
+neodev.setup({
+	library = {
+		enable = true,
+		plugins = { "nvim-dap-ui" },
+		types = true,
+	},
+})
+
 mason_lspconfig.setup({
-  ensure_installed = {
-    "clangd",
-    "vimls",
-    "lua_ls",
-    "html",
-    "cssls",
-    "tsserver",
-    "vuels",
-    "jsonls",
-    "emmet_ls",
-    "tailwindcss",
-  },
-  automatic_installation = false,
+	ensure_installed = {
+		"lua_ls",
+		"bashls",
+		"pyright",
+		"tsserver",
+		"gopls",
+		"clangd",
+		"vimls",
+	},
+	automatic_installation = true,
 })
 
 local lspconfig

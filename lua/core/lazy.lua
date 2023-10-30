@@ -21,7 +21,15 @@ local plugins = {
     "nvim-tree/nvim-web-devicons",
     lazy = true,
   },
-
+  {
+    "nvimdev/lspsaga.nvim",
+    event = "LspAttach",
+    ft = {'c','cpp', 'lua', 'rust', 'go'},
+    dependencies = {
+        'nvim-treesitter/nvim-treesitter', -- optional
+        'nvim-tree/nvim-web-devicons'     -- optional
+    },
+  },
   -- ui
   {
     "andersevenrud/nordic.nvim",
@@ -83,6 +91,7 @@ local plugins = {
   { "williamboman/mason-lspconfig.nvim" },
   {
     "jose-elias-alvarez/null-ls.nvim",
+    requires = { "nvim-lua/plenary.nvim" },
     event = {
       "BufReadPre",
       "BufNewFile",
@@ -167,10 +176,10 @@ local plugins = {
       "BufNewFile",
     },
   },
-  -- { "akinsho/toggleterm.nvim",
-  --   version = "*",
-  --   config = true,
-  -- },
+  { "akinsho/toggleterm.nvim",
+     version = "*",
+     config = true,
+  },
   -- { "simrat39/symbols-outline.nvim" },
 
   -- markdown
@@ -199,6 +208,18 @@ local plugins = {
     "norcalli/nvim-colorizer.lua",
     event = "VeryLazy",
   },
+  {
+    "SmiteshP/nvim-navic",
+    requires = "neovim/nvim-lspconfig"
+  },
+  {
+    "b0o/schemastore.nvim",
+    lazy = true,
+  },
+  {
+    'stevearc/conform.nvim',
+    opts = {},
+  }
 }
 
 local opts = {

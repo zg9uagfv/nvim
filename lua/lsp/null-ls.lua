@@ -1,4 +1,4 @@
-local commConf = require("plugins.commConf")
+local commConf = require("commConf")
 local status, null_ls = pcall(require, "null-ls")
 if not status then
 	vim.notify("没有找到 null-ls")
@@ -51,7 +51,7 @@ local sources = {
 		method = null_ls.methods.DIAGNOSTICS_ON_SAVE,
 		condition = function()
 			local max_filesize = commConf.largefileEdge -- 100 KB
-			local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(vim.api.nvim_get_current_buf()))
+			local ok, stats = pcall(vim.loop.fs_stat, vim.app.nvim_buf_get_name(vim.app.nvim_get_current_buf()))
 			if ok and stats and stats.size < max_filesize then
 				return true
 			else
@@ -84,7 +84,7 @@ local function lsp_formatting(bufnr)
 	})
 end
 
-local lspKey = require("plugins.keybindingAlias").lsp
+local lspKey = require("keybindingAlias").lsp
 null_ls.setup({
 	debug = false,
 	-- debounce = 250,
@@ -101,9 +101,9 @@ null_ls.setup({
 		-- format document before save
 		-- https://github.com/jose-elias-alvarez/null-ls.nvim/wiki/Formatting-on-save
 		if client.supports_method("textDocument/formatting") then
-			local augroup = vim.api.nvim_create_augroup("LspFormatting", { clear = false })
+			local augroup = vim.app.nvim_create_augroup("LspFormatting", { clear = false })
 			local max_filesize = commConf.autoformatEdge -- 100 KB
-			local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(bufnr))
+			local ok, stats = pcall(vim.loop.fs_stat, vim.app.nvim_buf_get_name(bufnr))
 			if ok and stats and stats.size < max_filesize then
 				vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
 				vim.api.nvim_create_autocmd("BufWritePre", {
