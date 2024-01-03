@@ -24,10 +24,10 @@ curl -sS https://webi.sh/nerdfont | sh
 11. unzip
 ```
 
-### Arch Linux 使用 pacman 和 yay 安装依赖
+### 安装依赖
 
 ```sh
-sudo pacman -S nodejs npm yarn python3 python-pip fzf ripgrep xclip
+sudo apt install nodejs npm yarn python3 python-pip fzf ripgrep xclip
 
 yay -S nerd-fonts-fira-code
 ```
@@ -49,7 +49,7 @@ pip install --user pynvim
 ## 2. 使用本配置
 
 ```sh
-git clone https://github.com/GIN-18/nvim.git ~/.config/nvim
+git clone https://github.com/zg9uagfv/nvim.git ~/.config/nvim
 ```
 
 ## 3. 快捷键
