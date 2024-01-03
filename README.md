@@ -2,6 +2,10 @@
 
 <img src="https://github.com/GIN-18/pictures/blob/master/readme-images/nvim/nvim-alpha.png?raw=true" alt="nvim-start" />
 
+## nerdfont
+
+curl -sS https://webi.sh/nerdfont | sh
+
 ## 1. 依赖
 
 使用配置之前确保安装了以下软件包。
